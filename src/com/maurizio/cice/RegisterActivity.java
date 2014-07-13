@@ -1,5 +1,13 @@
 package com.maurizio.cice;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import org.apache.http.NameValuePair;
+import org.apache.http.message.BasicNameValuePair;
+
+import com.maurizio.cice.handlerrequest.HandlerRequestHttp;
+
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.annotation.TargetApi;
@@ -22,6 +30,8 @@ import android.view.inputmethod.EditorInfo;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
+import android.view.View.OnFocusChangeListener;
 
 /**
  * Activity which displays a login screen to the user, offering registration as
@@ -71,6 +81,20 @@ public class RegisterActivity extends Activity {
 		mEmail = getIntent().getStringExtra(EXTRA_EMAIL);
 		mEmailView = (EditText) findViewById(R.id.email_register);
 		mEmailView.setText(mEmail);
+		mEmailView.setOnFocusChangeListener(new OnFocusChangeListener() {
+
+			@Override
+			public void onFocusChange(View v, boolean hasFocus) {
+				// TODO Auto-generated method stub
+				Log.i("", "hola: "+mEmailView.getText().toString());
+				if(mEmailView.getText().toString().length()>0){
+					String[] data = { mEmailView.getText().toString()};
+					new CheckEmail().execute(data);
+				}
+				
+			}
+			
+		});
 
 		mFullNameView = (EditText) findViewById(R.id.fullName);
 		mUserNameView = (EditText) findViewById(R.id.userName);
@@ -230,6 +254,8 @@ public class RegisterActivity extends Activity {
 			showProgress(true);
 			mAuthTask = new UserLoginTask();
 			mAuthTask.execute((Void) null);
+			//String[] data = { mEmailView.getText().toString()};
+			// new CheckEmail().execute(data);
 		}
 	}
 
@@ -315,6 +341,58 @@ public class RegisterActivity extends Activity {
 		protected void onCancelled() {
 			mAuthTask = null;
 			showProgress(false);
+		}
+	}
+	
+	
+	private class CheckEmail extends AsyncTask<String, Void, Void> {
+		
+		String jsonStr = null;
+		
+		@Override
+		protected void onPreExecute() {
+			// TODO Auto-generated method stub
+			super.onPreExecute();
+			//showProgress(true);
+		}
+
+		@Override
+		protected Void doInBackground(String... params) {
+			HandlerRequestHttp sh = new HandlerRequestHttp();
+
+			String url = getResources().getString(R.urls.url_base)
+					+ getResources().getString(R.urls.url_check_email);
+			Log.d("", "url check email:" + url);
+			String txtEmail = params[0];
+
+			// AÑADIR PARAMETROS
+			List<NameValuePair> data = new ArrayList<NameValuePair>();
+			data.add(new BasicNameValuePair("email", txtEmail));
+
+			// Making a request to url and getting response
+			jsonStr = sh.makeServiceCall(url,
+					HandlerRequestHttp.POST, data);
+
+			Log.d("Response: ", "> " + jsonStr);
+			
+			return null;
+		}
+
+		protected void onPostExecute(Void result) {
+			// TODO Auto-generated method stub
+			super.onPostExecute(result);
+
+			//showProgress(false);
+			if (jsonStr != null) {
+				if(jsonStr.contains("KO")){
+//					Toast.makeText(getApplicationContext(), "Este email ya se en",
+//							Toast.LENGTH_SHORT).show();
+					Log.d("error: ", "> " + getString(R.string.error_email_already_exist));
+					mEmailView.setText("");
+					mEmailView.setError(getString(R.string.error_email_already_exist));
+					mEmailView.requestFocus();
+				}
+			}
 		}
 	}
 }

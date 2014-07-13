@@ -52,31 +52,31 @@ public final class R {
         public static final int list_selector=0x7f02000b;
     }
     public static final class id {
-        public static final int action_forgot_password=0x7f0a0017;
-        public static final int action_settings=0x7f0a0018;
-        public static final int add_button=0x7f0a0012;
-        public static final int counter=0x7f0a0015;
-        public static final int drawer_layout=0x7f0a0008;
-        public static final int email=0x7f0a0003;
-        public static final int email_register=0x7f0a0010;
-        public static final int frame_container=0x7f0a0009;
-        public static final int fullName=0x7f0a000e;
-        public static final int icon=0x7f0a0013;
-        public static final int list_slidermenu=0x7f0a000a;
-        public static final int login=0x7f0a0005;
-        public static final int login_form=0x7f0a0002;
-        public static final int login_status=0x7f0a0000;
-        public static final int login_status_message=0x7f0a0001;
-        public static final int password=0x7f0a0004;
-        public static final int password_register=0x7f0a0011;
-        public static final int register_button=0x7f0a0007;
-        public static final int register_form=0x7f0a000d;
-        public static final int register_status=0x7f0a000b;
-        public static final int register_status_message=0x7f0a000c;
-        public static final int sign_in_button=0x7f0a0006;
-        public static final int title=0x7f0a0014;
-        public static final int txtLabel=0x7f0a0016;
-        public static final int userName=0x7f0a000f;
+        public static final int action_forgot_password=0x7f0b0017;
+        public static final int action_settings=0x7f0b0018;
+        public static final int add_button=0x7f0b0012;
+        public static final int counter=0x7f0b0015;
+        public static final int drawer_layout=0x7f0b0008;
+        public static final int email=0x7f0b0003;
+        public static final int email_register=0x7f0b0010;
+        public static final int frame_container=0x7f0b0009;
+        public static final int fullName=0x7f0b000e;
+        public static final int icon=0x7f0b0013;
+        public static final int list_slidermenu=0x7f0b000a;
+        public static final int login=0x7f0b0005;
+        public static final int login_form=0x7f0b0002;
+        public static final int login_status=0x7f0b0000;
+        public static final int login_status_message=0x7f0b0001;
+        public static final int password=0x7f0b0004;
+        public static final int password_register=0x7f0b0011;
+        public static final int register_button=0x7f0b0007;
+        public static final int register_form=0x7f0b000d;
+        public static final int register_status=0x7f0b000b;
+        public static final int register_status_message=0x7f0b000c;
+        public static final int sign_in_button=0x7f0b0006;
+        public static final int title=0x7f0b0014;
+        public static final int txtLabel=0x7f0b0016;
+        public static final int userName=0x7f0b000f;
     }
     public static final class layout {
         public static final int activity_login=0x7f030000;
@@ -91,9 +91,9 @@ public final class R {
         public static final int fragment_whats_hot=0x7f030009;
     }
     public static final class menu {
-        public static final int login=0x7f090000;
-        public static final int main=0x7f090001;
-        public static final int register=0x7f090002;
+        public static final int login=0x7f0a0000;
+        public static final int main=0x7f0a0001;
+        public static final int register=0x7f0a0002;
     }
     public static final class string {
         public static final int action_forgot_password=0x7f060010;
@@ -108,6 +108,7 @@ public final class R {
         public static final int desc_list_item_icon=0x7f060005;
         public static final int drawer_close=0x7f060004;
         public static final int drawer_open=0x7f060003;
+        public static final int error_email_already_exist=0x7f060016;
         public static final int error_field_required=0x7f060015;
         public static final int error_incorrect_password=0x7f060014;
         public static final int error_invalid_email=0x7f060012;
@@ -151,5 +152,9 @@ public final class R {
          */
         public static final int AppTheme=0x7f080001;
         public static final int LoginFormContainer=0x7f080002;
+    }
+    public static final class urls {
+        public static final int url_base=0x7f090000;
+        public static final int url_check_email=0x7f090001;
     }
 }
