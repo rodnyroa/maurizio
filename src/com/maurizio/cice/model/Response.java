@@ -4,11 +4,19 @@ import java.io.Serializable;
 
 public class Response implements Serializable{
 
-	private String Token, Response,MessageCode;
+	private String Token, Response,MessageCode,UserId;
 	private User User;
 
 	public String getToken() {
 		return Token;
+	}
+
+	public String getUserId() {
+		return UserId;
+	}
+
+	public void setUserId(String userId) {
+		UserId = userId;
 	}
 
 	public String getMessageCode() {
