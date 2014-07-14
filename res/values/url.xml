@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="url_base" type="urls">http://maudev.com:8080/</item>
+    <item name="url_check_email" type="urls">MauPin-User-Login/email.do</item>
+    <item name="url_register" type="urls">MauPin-User-SignUp/signup.do</item>
+    <item name="url_login" type="urls">MauPin-User-Login/login.do</item>
+    
+</resources>

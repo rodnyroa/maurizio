@@ -108,11 +108,17 @@ public final class R {
         public static final int desc_list_item_icon=0x7f060005;
         public static final int drawer_close=0x7f060004;
         public static final int drawer_open=0x7f060003;
-        public static final int error_email_already_exist=0x7f060016;
-        public static final int error_field_required=0x7f060015;
-        public static final int error_incorrect_password=0x7f060014;
-        public static final int error_invalid_email=0x7f060012;
-        public static final int error_invalid_password=0x7f060013;
+        /**  Errors 
+ 000009 
+         */
+        public static final int email_not_exists=0x7f060019;
+        /**  000007 
+         */
+        public static final int error_email_already_exist=0x7f06001a;
+        public static final int error_field_required=0x7f060016;
+        public static final int error_incorrect_password=0x7f060015;
+        public static final int error_invalid_email=0x7f060013;
+        public static final int error_invalid_password=0x7f060014;
         public static final int hello_world=0x7f060002;
         public static final int login_progress_signing_in=0x7f060011;
         /**  Strings related to login 
@@ -121,8 +127,11 @@ public final class R {
         public static final int prompt_full_name=0x7f060009;
         public static final int prompt_password=0x7f06000b;
         public static final int prompt_user_name=0x7f06000a;
+        public static final int register_progress=0x7f060012;
         public static final int title_activity_login=0x7f060006;
         public static final int title_activity_register=0x7f060007;
+        public static final int user_login_success=0x7f060018;
+        public static final int user_register_success=0x7f060017;
     }
     public static final class style {
         /** 
@@ -156,5 +165,7 @@ public final class R {
     public static final class urls {
         public static final int url_base=0x7f090000;
         public static final int url_check_email=0x7f090001;
+        public static final int url_login=0x7f090003;
+        public static final int url_register=0x7f090002;
     }
 }

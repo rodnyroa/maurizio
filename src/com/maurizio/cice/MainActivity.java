@@ -21,6 +21,7 @@ import android.widget.ListView;
 
 import com.maurizio.cice.adapter.NavDrawerListAdapter;
 import com.maurizio.cice.model.NavDrawerItem;
+import com.maurizio.cice.model.Response;
 
 public class MainActivity extends Activity {
 	private DrawerLayout mDrawerLayout;
@@ -39,11 +40,18 @@ public class MainActivity extends Activity {
 
 	private ArrayList<NavDrawerItem> navDrawerItems;
 	private NavDrawerListAdapter adapter;
+	private Response response;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
+		
+		response = (Response) getIntent().getSerializableExtra(
+				"response");
+		if(response!=null){
+			Log.d("response:", ""+response.getUser().getFullName());
+		}
 
 		mTitle = mDrawerTitle = getTitle();
 

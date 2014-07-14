@@ -52,10 +52,7 @@ public class RegisterActivity extends Activity {
 	 */
 	public static final String EXTRA_EMAIL = "com.example.android.authenticatordemo.extra.EMAIL";
 
-	/**
-	 * Keep track of the login task to ensure we can cancel it if requested.
-	 */
-	private UserLoginTask mAuthTask = null;
+	
 
 	// Values for email and password at the time of the login attempt.
 	private String mEmail, mFullName, mUserName;
@@ -187,9 +184,7 @@ public class RegisterActivity extends Activity {
 	 * errors are presented and no actual login attempt is made.
 	 */
 	public void attemptRegister() {
-		if (mAuthTask != null) {
-			return;
-		}
+		
 
 		// Reset errors.
 		mEmailView.setError(null);
@@ -250,12 +245,12 @@ public class RegisterActivity extends Activity {
 			// Show a progress spinner, and kick off a background task to
 			// perform the user login attempt.
 			mRegisterStatusMessageView
-					.setText(R.string.login_progress_signing_in);
+					.setText(R.string.register_progress);
 			showProgress(true);
-			mAuthTask = new UserLoginTask();
-			mAuthTask.execute((Void) null);
-			//String[] data = { mEmailView.getText().toString()};
-			// new CheckEmail().execute(data);
+//			mAuthTask = new UserLoginTask();
+//			mAuthTask.execute((Void) null);
+			String[] data = {mFullName,mUserName, mEmail,mPassword};
+			new UserRegisterTask().execute(data);
 		}
 	}
 
@@ -305,41 +300,62 @@ public class RegisterActivity extends Activity {
 	 * Represents an asynchronous login/registration task used to authenticate
 	 * the user.
 	 */
-	public class UserLoginTask extends AsyncTask<Void, Void, Boolean> {
+	public class UserRegisterTask extends AsyncTask<String, Void, Void> {
+		String jsonStr=null;
 		@Override
-		protected Boolean doInBackground(Void... params) {
-			// TODO: attempt authentication against a network service.
+		protected void onPreExecute() {
+			// TODO Auto-generated method stub
+			super.onPreExecute();
+			//showProgress(true);
+		}
+		
+		@Override
+		protected Void doInBackground(String... params) {
+			HandlerRequestHttp sh = new HandlerRequestHttp();
 
-			try {
-				// Simulate network access.
-				Thread.sleep(2000);
-			} catch (InterruptedException e) {
-				return false;
-			}
+			String url = getResources().getString(R.urls.url_base)
+					+ getResources().getString(R.urls.url_check_email);
+			Log.d("", "url check email:" + url);
+			String full_name = params[0];
+			String user_name = params[1];
+			String email = params[2];
+			String password = params[3];
 
-			// TODO: register the new account here.
-			return true;
+			// AÑADIR PARAMETROS
+			List<NameValuePair> data = new ArrayList<NameValuePair>();
+			data.add(new BasicNameValuePair("full_name", full_name));
+			data.add(new BasicNameValuePair("user_name", user_name));
+			data.add(new BasicNameValuePair("email", email));
+			data.add(new BasicNameValuePair("password", password));
+
+			// Making a request to url and getting response
+			jsonStr = sh.makeServiceCall(url,
+					HandlerRequestHttp.POST, data);
+
+			Log.d("Response: ", "> " + jsonStr);
+			
+			return null;
 		}
 
-		@Override
-		protected void onPostExecute(final Boolean success) {
-			mAuthTask = null;
+		protected void onPostExecute(Void result) {
+			// TODO Auto-generated method stub
+			super.onPostExecute(result);
+
 			showProgress(false);
-
-			if (success) {
-				Intent i = new Intent(RegisterActivity.this, MainActivity.class);
-				startActivity(i);
-				finish();
-			} else {
-				mPasswordView
-						.setError(getString(R.string.error_incorrect_password));
-				mPasswordView.requestFocus();
+			if (jsonStr != null) {
+				if(jsonStr.contains("OK")){
+					//Log.d("error: ", "> " + getString(R.string.error_email_already_exist));
+					Intent i = new Intent(RegisterActivity.this,LoginActivity.class);
+					i.putExtra("register", "OK");
+					startActivity(i);
+					finish();
+				}
 			}
 		}
-
+		
 		@Override
 		protected void onCancelled() {
-			mAuthTask = null;
+			
 			showProgress(false);
 		}
 	}

@@ -6,17 +6,17 @@
     <string name="hello_world">Hello world!</string>
     <string name="drawer_open">Slider Menu Opened</string>
     <string name="drawer_close">Slider Menu Closed</string>
-    
+
     <!-- Nav Drawer Menu Items -->
     <string-array name="nav_drawer_items">
-        <item >Home</item>
-        <item >Find People</item>
-        <item >Photos</item>
-        <item >Communities</item>
-        <item >Pages</item>
-        <item >What\'s Hot</item>
+        <item>Home</item>
+        <item>Find People</item>
+        <item>Photos</item>
+        <item>Communities</item>
+        <item>Pages</item>
+        <item>What\'s Hot</item>
     </string-array>
-    
+
     <!-- Nav Drawer List Item Icons -->
     <!-- Keep them in order as the titles are in -->
     <array name="nav_drawer_icons">
@@ -27,10 +27,9 @@
         <item>@drawable/ic_pages</item>
         <item>@drawable/ic_whats_hot</item>
     </array>
-    
+
     <!-- Content Description -->
     <string name="desc_list_item_icon">Item Icon</string>
-    
     <string name="title_activity_login">Sign in</string>
     <string name="title_activity_register">Register</string>
 
@@ -45,11 +44,18 @@
     <string name="action_sign_in_short">Sign in</string>
     <string name="action_forgot_password">Recover lost password</string>
     <string name="login_progress_signing_in">Signing in&#8230;</string>
+    <string name="register_progress">Register &#8230;</string>
     <string name="error_invalid_email">This email address is invalid</string>
     <string name="error_invalid_password">This password is too short</string>
     <string name="error_incorrect_password">This password is incorrect</string>
     <string name="error_field_required">This field is required</string>
-    
+    <string name="user_register_success">Register success!</string>
+    <string name="user_login_success">Login success!</string>
+
+    <!-- Errors -->
+    <!-- 000009 -->
+    <string name="email_not_exists">Email not exists!</string>
+    <!-- 000007 -->
     <string name="error_email_already_exist">The Email already exist!</string>
 
 </resources>
