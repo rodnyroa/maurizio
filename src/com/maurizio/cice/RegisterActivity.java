@@ -249,7 +249,7 @@ public class RegisterActivity extends Activity {
 			showProgress(true);
 //			mAuthTask = new UserLoginTask();
 //			mAuthTask.execute((Void) null);
-			String[] data = {mFullName,mUserName, mEmail,mPassword};
+			String[] data = {mFullName,mUserName, mEmail,mPassword };
 			new UserRegisterTask().execute(data);
 		}
 	}
