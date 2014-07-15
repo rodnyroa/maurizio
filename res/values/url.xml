@@ -4,5 +4,6 @@
     <item name="url_check_email" type="urls">MauPin-User-Login/email.do</item>
     <item name="url_register" type="urls">MauPin-User-SignUp/signup.do</item>
     <item name="url_login" type="urls">MauPin-User-Login/login.do</item>
+    <item name="url_make_pin" type="urls">MauPin-User-PinIt/pinit.do</item>
     
 </resources>

@@ -1,11 +1,31 @@
 package com.maurizio.cice.model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 
 public class Response implements Serializable{
 
 	private String Token, Response,MessageCode,UserId;
 	private User User;
+	private Pin Pin;
+	private ArrayList<Pin> Pins;
+	
+
+	public Pin getPin() {
+		return Pin;
+	}
+
+	public void setPin(Pin pin) {
+		Pin = pin;
+	}
+
+	public ArrayList<Pin> getPins() {
+		return Pins;
+	}
+
+	public void setPins(ArrayList<Pin> pins) {
+		Pins = pins;
+	}
 
 	public String getToken() {
 		return Token;
