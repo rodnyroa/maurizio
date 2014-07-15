@@ -289,6 +289,7 @@ public class LoginActivity extends Activity {
 					Toast.makeText(getApplicationContext(),
 							msg,
 							Toast.LENGTH_LONG).show();
+					return;
 				}
 				// if(jsonStr.contains("OK")){
 				// //Log.d("error: ", "> " +
