@@ -13,6 +13,8 @@ local.properties
 .settings/
 .loadpath
 
+R.java
+
 # External tool builders
 .externalToolBuilders/
 
