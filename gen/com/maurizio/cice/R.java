@@ -43,13 +43,14 @@ public final class R {
         public static final int ic_drawer=0x7f020002;
         public static final int ic_home=0x7f020003;
         public static final int ic_launcher=0x7f020004;
-        public static final int ic_pages=0x7f020005;
-        public static final int ic_people=0x7f020006;
-        public static final int ic_photos=0x7f020007;
-        public static final int ic_whats_hot=0x7f020008;
-        public static final int list_item_bg_normal=0x7f020009;
-        public static final int list_item_bg_pressed=0x7f02000a;
-        public static final int list_selector=0x7f02000b;
+        public static final int ic_no_img=0x7f020005;
+        public static final int ic_pages=0x7f020006;
+        public static final int ic_people=0x7f020007;
+        public static final int ic_photos=0x7f020008;
+        public static final int ic_whats_hot=0x7f020009;
+        public static final int list_item_bg_normal=0x7f02000a;
+        public static final int list_item_bg_pressed=0x7f02000b;
+        public static final int list_selector=0x7f02000c;
     }
     public static final class id {
         public static final int LinearLayout1=0x7f0b0017;
