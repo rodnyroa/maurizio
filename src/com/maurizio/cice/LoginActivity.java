@@ -6,16 +6,14 @@ import java.util.List;
 import org.apache.http.NameValuePair;
 import org.apache.http.message.BasicNameValuePair;
 
-import com.google.gson.Gson;
-import com.maurizio.cice.RegisterActivity.UserRegisterTask;
-import com.maurizio.cice.handlerrequest.HandlerRequestHttp;
-import com.maurizio.cice.model.Response;
-
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.annotation.TargetApi;
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.content.SharedPreferences.Editor;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
@@ -28,6 +26,10 @@ import android.view.inputmethod.EditorInfo;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.google.gson.Gson;
+import com.maurizio.cice.handlerrequest.HandlerRequestHttp;
+import com.maurizio.cice.model.Response;
 
 /**
  * Activity which displays a login screen to the user, offering registration as
@@ -286,19 +288,19 @@ public class LoginActivity extends Activity {
 				}
 				if (msg != null) {
 					Log.d("error: ", "> " + msg);
-					Toast.makeText(getApplicationContext(),
-							msg,
+					Toast.makeText(getApplicationContext(), msg,
 							Toast.LENGTH_LONG).show();
-					return;
 				}
-				// if(jsonStr.contains("OK")){
-				// //Log.d("error: ", "> " +
-				// getString(R.string.error_email_already_exist));
-				 Intent i = new Intent(LoginActivity.this,MainActivity.class);
-				 i.putExtra("response", response);
-				 startActivity(i);
-				 finish();
-				// }
+
+				if (response.getToken() != null) {
+					savePreferences("token", response.getToken());
+					Intent i = new Intent(LoginActivity.this,
+							MainActivity.class);
+					i.putExtra("response", response);
+					startActivity(i);
+					finish();
+				}
+
 			}
 		}
 
@@ -307,5 +309,13 @@ public class LoginActivity extends Activity {
 
 			showProgress(false);
 		}
+	}
+
+	private void savePreferences(String key, String value) {
+		SharedPreferences sharedPreferences = this.getSharedPreferences(
+				"MyPreferences", Context.MODE_PRIVATE);
+		Editor editor = sharedPreferences.edit();
+		editor.putString(key, value);
+		editor.commit();
 	}
 }
