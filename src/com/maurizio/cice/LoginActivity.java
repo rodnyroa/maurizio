@@ -23,6 +23,7 @@ import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -293,6 +294,7 @@ public class LoginActivity extends Activity {
 				}
 
 				if (response.getToken() != null) {
+					
 					savePreferences("token", response.getToken());
 					Intent i = new Intent(LoginActivity.this,
 							MainActivity.class);
@@ -318,4 +320,5 @@ public class LoginActivity extends Activity {
 		editor.putString(key, value);
 		editor.commit();
 	}
+	
 }
