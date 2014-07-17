@@ -7,62 +7,74 @@ import org.apache.http.NameValuePair;
 import org.apache.http.message.BasicNameValuePair;
 
 import com.google.gson.Gson;
-import com.maurizio.cice.MakePinActivity.MakePin;
-import com.maurizio.cice.adapter.FollowingPinsAdapter;
 import com.maurizio.cice.handlerrequest.HandlerRequestHttp;
 import com.maurizio.cice.model.Response;
 
-import android.app.Fragment;
-import android.app.ProgressDialog;
-import android.content.Context;
-import android.content.SharedPreferences;
-import android.content.SharedPreferences.Editor;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.app.Activity;
+import android.app.ProgressDialog;
+import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
+import android.content.SharedPreferences.Editor;
 import android.util.Log;
-import android.view.LayoutInflater;
+import android.view.Menu;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ListView;
+import android.view.View.OnClickListener;
+import android.view.inputmethod.InputMethodManager;
+import android.widget.Button;
+import android.widget.EditText;
 
-public class HomeFragment extends Fragment {
-
-	private ListView lvFollowingPins;
+public class MakePinActivity extends Activity {
 
 	private Response response;
+	private EditText pin;
+	private Button btnHacerPin;
 	ProgressDialog pd;
-	View rootView;
 
 	private String token;
 
-	public HomeFragment() {
-	}
-
 	@Override
-	public View onCreateView(LayoutInflater inflater, ViewGroup container,
-			Bundle savedInstanceState) {
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_make_pin);
 
-		pd = new ProgressDialog(getActivity());
+		token = getPreferencesByKey("token");
+
+		pd = new ProgressDialog(this);
 		pd.setTitle("Processing..");
 		pd.setMessage("Please wait..");
 		pd.setCancelable(false);
 		pd.setIndeterminate(true);
 
-		token = getPreferencesByKey("token");
-		Log.d("token home:", "" + token);
+		pin = (EditText) findViewById(R.id.etxtPin);
+		btnHacerPin = (Button) findViewById(R.id.btnHacerPin);
 
-		rootView = inflater.inflate(R.layout.fragment_home, container,
-				false);
+		btnHacerPin.setOnClickListener(new OnClickListener() {
 
-		lvFollowingPins = (ListView) rootView.findViewById(R.id.lvFollowingPins);
-
-		String[] data = { token };
-		new FollowingPin().execute(data);
-
-		return rootView;
+			@Override
+			public void onClick(View v) {
+				hacerPin();
+			}
+		});
 	}
 
-	public class FollowingPin extends AsyncTask<String, Void, Void> {
+	private void hacerPin() {
+		if (pin.getText().toString().length() == 0) {
+			pin.setError(getString(R.string.error_ingresa_tu_pin));
+			pin.requestFocus();
+			return;
+		}
+		String[] data = { pin.getText().toString(), token };
+		new MakePin().execute(data);
+	}
+
+	/**
+	 * Represents an asynchronous login/registration task used to authenticate
+	 * the user.
+	 */
+	public class MakePin extends AsyncTask<String, Void, Void> {
 		String jsonStr = null;
 
 		@Override
@@ -77,12 +89,14 @@ public class HomeFragment extends Fragment {
 			HandlerRequestHttp sh = new HandlerRequestHttp();
 
 			String url = getResources().getString(R.urls.url_base)
-					+ getResources().getString(R.urls.url_following_pin);
-			Log.d("", "url_following_pin:" + url);
-			String token = params[0];
+					+ getResources().getString(R.urls.url_make_pin);
+			Log.d("", "url_make_pin:" + url);
+			String pin = params[0];
+			String token = params[1];
 
 			// AÑADIR PARAMETROS
 			List<NameValuePair> data = new ArrayList<NameValuePair>();
+			data.add(new BasicNameValuePair("pin", pin));
 			data.add(new BasicNameValuePair("token", token));
 
 			// Making a request to url and getting response
@@ -99,6 +113,7 @@ public class HomeFragment extends Fragment {
 			pd.dismiss();
 
 			if (jsonStr != null) {
+				hideSoftKeyboard();
 
 				Gson gson = new Gson();
 
@@ -125,21 +140,13 @@ public class HomeFragment extends Fragment {
 					// msg,
 					// Toast.LENGTH_LONG).show();
 				}
-				
-				if(response.getResponse().equalsIgnoreCase("OK")){
-					Log.i("", "peticion OK ");
-					if(response.getPins()!=null){
-						Log.i("", "peticion con pin: "+response.getPins().size());
-						FollowingPinsAdapter adapter = new FollowingPinsAdapter(rootView.getContext(), response.getPins());
-						lvFollowingPins.setAdapter(adapter);
-					}
-					
-					savePreferences("token", response.getToken());
-				}
 
-				// Intent intent = getIntent();
-				// finish();
-				// startActivity(intent);
+				//Intent intent = getIntent();
+				Intent returnIntent = new Intent();
+				//returnIntent.putExtra("response",response.getResponse());
+				setResult(RESULT_OK,returnIntent);
+				finish();
+				//startActivity(intent);
 			}
 		}
 
@@ -151,27 +158,35 @@ public class HomeFragment extends Fragment {
 	}
 
 	private void savePreferences(String key, String value) {
-		SharedPreferences sharedPreferences = this.getActivity()
-				.getSharedPreferences("MyPreferences", Context.MODE_PRIVATE);
+		SharedPreferences sharedPreferences = this.getSharedPreferences(
+				"MyPreferences", Context.MODE_PRIVATE);
 		Editor editor = sharedPreferences.edit();
 		editor.putString(key, value);
 		editor.commit();
 	}
 
 	private void clearSharedPreferenes() {
-		SharedPreferences sharedPreferences = this.getActivity()
-				.getSharedPreferences("MyPreferences", Context.MODE_PRIVATE);
+		SharedPreferences sharedPreferences = this.getSharedPreferences(
+				"MyPreferences", Context.MODE_PRIVATE);
 		Editor editor = sharedPreferences.edit();
 		editor.clear();
 		editor.commit();
-		this.getActivity().finish();
-		startActivity(this.getActivity().getIntent());
+		this.finish();
+		startActivity(this.getIntent());
 
 	}
 
 	private String getPreferencesByKey(String key) {
-		SharedPreferences sharedPreferences = this.getActivity()
-				.getSharedPreferences("MyPreferences", Context.MODE_PRIVATE);
+		SharedPreferences sharedPreferences = this.getSharedPreferences(
+				"MyPreferences", Context.MODE_PRIVATE);
 		return sharedPreferences.getString(key, null);
 	}
+	
+	public void hideSoftKeyboard() {
+	    if(getCurrentFocus()!=null) {
+	        InputMethodManager inputMethodManager = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
+	        inputMethodManager.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), 0);
+	    }
+	}
+
 }

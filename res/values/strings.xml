@@ -43,10 +43,8 @@
     <string name="error_field_required">This field is required</string>
     <string name="user_register_success">Register success!</string>
     <string name="user_login_success">Login success!</string>
-    
     <string name="pin">Pin:</string>
     <string name="btn_pin">Pin!</string>
-    
     <string name="error_ingresa_tu_pin">Ingresa tu Pin!</string>
 
     <!-- Errors -->
@@ -54,5 +52,6 @@
     <string name="email_not_exists">Email not exists!</string>
     <!-- 000007 -->
     <string name="error_email_already_exist">The Email already exist!</string>
+    <string name="title_activity_make_pin">MakePinActivity</string>
 
 </resources>

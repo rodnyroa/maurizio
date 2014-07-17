@@ -51,54 +51,64 @@ public final class R {
         public static final int list_item_bg_normal=0x7f02000a;
         public static final int list_item_bg_pressed=0x7f02000b;
         public static final int list_selector=0x7f02000c;
+        public static final int user=0x7f02000d;
     }
     public static final class id {
-        public static final int LinearLayout1=0x7f0b0017;
-        public static final int action_forgot_password=0x7f0b001b;
-        public static final int action_settings=0x7f0b001c;
-        public static final int add_button=0x7f0b0012;
-        public static final int btnHacerPin=0x7f0b001a;
-        public static final int counter=0x7f0b0015;
+        public static final int LinearLayout1=0x7f0b000b;
+        public static final int action_forgot_password=0x7f0b0020;
+        public static final int action_settings=0x7f0b0022;
+        public static final int addPin=0x7f0b0021;
+        public static final int add_button=0x7f0b0016;
+        public static final int btnHacerPin=0x7f0b000e;
+        public static final int counter=0x7f0b0019;
         public static final int drawer_layout=0x7f0b0008;
         public static final int email=0x7f0b0003;
-        public static final int email_register=0x7f0b0010;
-        public static final int etxtPin=0x7f0b0019;
+        public static final int email_register=0x7f0b0014;
+        public static final int etxtPin=0x7f0b000d;
         public static final int frame_container=0x7f0b0009;
-        public static final int fullName=0x7f0b000e;
-        public static final int icon=0x7f0b0013;
+        public static final int fullName=0x7f0b0012;
+        public static final int icon=0x7f0b0017;
+        public static final int imageView1=0x7f0b001c;
+        public static final int imgFavorito=0x7f0b001f;
         public static final int list_slidermenu=0x7f0b000a;
         public static final int login=0x7f0b0005;
         public static final int login_form=0x7f0b0002;
         public static final int login_status=0x7f0b0000;
         public static final int login_status_message=0x7f0b0001;
+        public static final int lvFollowingPins=0x7f0b001b;
         public static final int password=0x7f0b0004;
-        public static final int password_register=0x7f0b0011;
+        public static final int password_register=0x7f0b0015;
         public static final int register_button=0x7f0b0007;
-        public static final int register_form=0x7f0b000d;
-        public static final int register_status=0x7f0b000b;
-        public static final int register_status_message=0x7f0b000c;
+        public static final int register_form=0x7f0b0011;
+        public static final int register_status=0x7f0b000f;
+        public static final int register_status_message=0x7f0b0010;
         public static final int sign_in_button=0x7f0b0006;
-        public static final int textView1=0x7f0b0018;
-        public static final int title=0x7f0b0014;
-        public static final int txtLabel=0x7f0b0016;
-        public static final int userName=0x7f0b000f;
+        public static final int title=0x7f0b0018;
+        public static final int tvFecha=0x7f0b001e;
+        public static final int tvNombreUsuario=0x7f0b000c;
+        public static final int tvPin=0x7f0b001d;
+        public static final int txtLabel=0x7f0b001a;
+        public static final int userName=0x7f0b0013;
     }
     public static final class layout {
         public static final int activity_login=0x7f030000;
         public static final int activity_main=0x7f030001;
-        public static final int activity_register=0x7f030002;
-        public static final int drawer_list_item=0x7f030003;
-        public static final int fragment_community=0x7f030004;
-        public static final int fragment_home=0x7f030005;
-        public static final int fragment_my_pins=0x7f030006;
-        public static final int fragment_pages=0x7f030007;
-        public static final int fragment_photos=0x7f030008;
-        public static final int fragment_whats_hot=0x7f030009;
+        public static final int activity_make_pin=0x7f030002;
+        public static final int activity_register=0x7f030003;
+        public static final int drawer_list_item=0x7f030004;
+        public static final int fragment_community=0x7f030005;
+        public static final int fragment_home=0x7f030006;
+        public static final int fragment_my_pins=0x7f030007;
+        public static final int fragment_pages=0x7f030008;
+        public static final int fragment_photos=0x7f030009;
+        public static final int fragment_whats_hot=0x7f03000a;
+        public static final int item_following_pins=0x7f03000b;
     }
     public static final class menu {
         public static final int login=0x7f0a0000;
         public static final int main=0x7f0a0001;
-        public static final int register=0x7f0a0002;
+        public static final int make_pin=0x7f0a0002;
+        public static final int register=0x7f0a0003;
     }
     public static final class string {
         public static final int action_forgot_password=0x7f060010;
@@ -137,6 +147,7 @@ public final class R {
         public static final int prompt_user_name=0x7f06000a;
         public static final int register_progress=0x7f060012;
         public static final int title_activity_login=0x7f060006;
+        public static final int title_activity_make_pin=0x7f06001e;
         public static final int title_activity_register=0x7f060007;
         public static final int user_login_success=0x7f060018;
         public static final int user_register_success=0x7f060017;
@@ -173,6 +184,7 @@ public final class R {
     public static final class urls {
         public static final int url_base=0x7f090000;
         public static final int url_check_email=0x7f090001;
+        public static final int url_following_pin=0x7f090005;
         public static final int url_login=0x7f090003;
         public static final int url_make_pin=0x7f090004;
         public static final int url_register=0x7f090002;
