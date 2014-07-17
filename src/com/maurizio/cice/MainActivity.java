@@ -172,6 +172,7 @@ public class MainActivity extends Activity implements OnItemSelectedListener{
 		
 		if(requestCode==REQUEST_CODE){
 			if(resultCode==RESULT_OK){
+				//Si queremos pasar parametros los recibimos asi	
 //				String response=data.getStringExtra("response");
 //				Log.i("", "onActivityResult"+response);				
 				this.finish();
