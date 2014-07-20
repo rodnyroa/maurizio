@@ -146,11 +146,17 @@ public final class R {
         public static final int error_field_required=0x7f060016;
         /**  000014 
          */
-        public static final int error_follow_exists=0x7f060025;
+        public static final int error_follow_exists=0x7f060027;
         public static final int error_incorrect_password=0x7f060015;
         public static final int error_ingresa_tu_pin=0x7f06001b;
         public static final int error_invalid_email=0x7f060013;
         public static final int error_invalid_password=0x7f060014;
+        /**  000011 
+         */
+        public static final int error_token_not_exists=0x7f060026;
+        /**  000008 
+         */
+        public static final int error_wrong_login=0x7f060025;
         public static final int follow_msg=0x7f06001d;
         public static final int follow_question=0x7f06001c;
         public static final int hello_world=0x7f060002;
@@ -166,7 +172,7 @@ public final class R {
         public static final int register_progress=0x7f060012;
         public static final int si=0x7f06001e;
         public static final int title_activity_login=0x7f060006;
-        public static final int title_activity_make_pin=0x7f060026;
+        public static final int title_activity_make_pin=0x7f060028;
         public static final int title_activity_register=0x7f060007;
         public static final int user_login_success=0x7f060018;
         public static final int user_register_success=0x7f060017;

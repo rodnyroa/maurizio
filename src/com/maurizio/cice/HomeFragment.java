@@ -16,6 +16,7 @@ import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 import android.os.AsyncTask;
@@ -25,6 +26,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
+import android.widget.Toast;
 
 public class HomeFragment extends Fragment {
 
@@ -113,18 +115,25 @@ public class HomeFragment extends Fragment {
 				String msg = null;
 
 				if (response.getResponse().contentEquals("OK")) {
-					msg = getString(R.string.user_login_success);
+					//msg = getString(R.string.user_login_success);
 					savePreferences("token", response.getToken());
 				} else {
 					if (response.getMessageCode().equals("000009")) {
 						msg = getString(R.string.email_not_exists);
+					}else if (response.getMessageCode().equals("000011")) {
+						msg = getString(R.string.error_token_not_exists);
 					}
 				}
 				if (msg != null) {
 					Log.d("error: ", "> " + msg);
-					// Toast.makeText(getApplicationContext(),
-					// msg,
-					// Toast.LENGTH_LONG).show();
+					Toast.makeText(getActivity(), msg,
+							Toast.LENGTH_LONG).show();
+					if (response.getMessageCode()!=null && response.getMessageCode().equals("000011")) {
+						Intent i = new Intent(getActivity(),
+								LoginActivity.class);
+						startActivity(i);
+						getActivity().finish();
+					}
 				}
 				
 				if(response.getResponse().equalsIgnoreCase("OK")){
@@ -134,6 +143,7 @@ public class HomeFragment extends Fragment {
 						FollowingPinsAdapter adapter = new FollowingPinsAdapter(rootView.getContext(), response.getPins());
 						lvFollowingPins.setAdapter(adapter);
 					}else{
+						Log.i("", "Sin datos!!");
 						Fragment fragment = new SinDatosFragment();
 
 						FragmentManager fragmentManager = getFragmentManager();

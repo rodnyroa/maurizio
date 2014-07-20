@@ -63,6 +63,10 @@
     <string name="email_format_error">Email format error!</string>
     <!-- 000007 -->
     <string name="error_email_already_exist">The Email already exist!</string>
+    <!-- 000008 -->
+    <string name="error_wrong_login">Wrong login</string>
+    <!-- 000011 -->
+    <string name="error_token_not_exists">Wrong login</string>
     <!-- 000014 -->
     <string name="error_follow_exists">Follow exists!</string>
     <string name="title_activity_make_pin">MakePinActivity</string>

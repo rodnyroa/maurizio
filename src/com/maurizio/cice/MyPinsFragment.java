@@ -38,7 +38,7 @@ public class MyPinsFragment extends Fragment {
 
 	//private EditText pin;
 	//private Button btnHacerPin;
-	//ProgressDialog pd;
+//	ProgressDialog pd;
 	private ListView listPinView;
 	
 
@@ -53,14 +53,13 @@ public class MyPinsFragment extends Fragment {
 		
 		token=getPreferencesByKey("token");
 
-		/*
->>>>>>> refs/heads/dani
+
 		pd = new ProgressDialog(getActivity());
 		pd.setTitle("Processing..");
 		pd.setMessage("Please wait..");
 		pd.setCancelable(false);
 		pd.setIndeterminate(true);
-*/
+
 		View rootView = inflater.inflate(R.layout.fragment_my_pins, container,
 				false);
 
@@ -74,7 +73,7 @@ public class MyPinsFragment extends Fragment {
         
         TaskThread tsk = new TaskThread(rootView.getContext(),listPinView);
         String token = getPreferencesByKey("token");
-
+        tsk.setProgressD(pd);
         tsk.execute(token);
 		
 
