@@ -55,9 +55,9 @@ public final class R {
     }
     public static final class id {
         public static final int LinearLayout1=0x7f0b000b;
-        public static final int action_forgot_password=0x7f0b0021;
-        public static final int action_settings=0x7f0b0024;
-        public static final int addPin=0x7f0b0023;
+        public static final int action_forgot_password=0x7f0b0024;
+        public static final int action_settings=0x7f0b0027;
+        public static final int addPin=0x7f0b0026;
         public static final int add_button=0x7f0b0016;
         public static final int btnHacerPin=0x7f0b000e;
         public static final int counter=0x7f0b0019;
@@ -65,30 +65,33 @@ public final class R {
         public static final int email=0x7f0b0003;
         public static final int email_register=0x7f0b0014;
         public static final int etxtPin=0x7f0b000d;
+        public static final int firstLine=0x7f0b0023;
         public static final int frame_container=0x7f0b0009;
         public static final int fullName=0x7f0b0012;
         public static final int icon=0x7f0b0017;
-        public static final int imageView1=0x7f0b001d;
-        public static final int imgFavorito=0x7f0b0020;
+        public static final int imageView1=0x7f0b001e;
+        public static final int imgFavorito=0x7f0b0021;
         public static final int list_slidermenu=0x7f0b000a;
         public static final int login=0x7f0b0005;
         public static final int login_form=0x7f0b0002;
         public static final int login_status=0x7f0b0000;
         public static final int login_status_message=0x7f0b0001;
+        public static final int lstPin=0x7f0b001c;
         public static final int lvFollowingPins=0x7f0b001b;
-        public static final int options=0x7f0b0022;
+        public static final int options=0x7f0b0025;
         public static final int password=0x7f0b0004;
         public static final int password_register=0x7f0b0015;
         public static final int register_button=0x7f0b0007;
         public static final int register_form=0x7f0b0011;
         public static final int register_status=0x7f0b000f;
         public static final int register_status_message=0x7f0b0010;
+        public static final int secondLine=0x7f0b0022;
         public static final int sign_in_button=0x7f0b0006;
-        public static final int textView1=0x7f0b001c;
+        public static final int textView1=0x7f0b001d;
         public static final int title=0x7f0b0018;
-        public static final int tvFecha=0x7f0b001f;
+        public static final int tvFecha=0x7f0b0020;
         public static final int tvNombreUsuario=0x7f0b000c;
-        public static final int tvPin=0x7f0b001e;
+        public static final int tvPin=0x7f0b001f;
         public static final int txtLabel=0x7f0b001a;
         public static final int userName=0x7f0b0013;
     }
@@ -106,6 +109,7 @@ public final class R {
         public static final int fragment_sin_datos=0x7f03000a;
         public static final int fragment_whats_hot=0x7f03000b;
         public static final int item_following_pins=0x7f03000c;
+        public static final int list_row=0x7f03000d;
     }
     public static final class menu {
         public static final int login=0x7f0a0000;
