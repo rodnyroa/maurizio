@@ -54,6 +54,7 @@
     <string name="cancel">Cancel</string>
     
     <string name="no_data">Without data</string>
+    <string name="add_pin">Add Pin</string>
 
     <!-- Errors -->
     <!-- 000009 -->
