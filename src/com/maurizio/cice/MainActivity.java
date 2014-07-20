@@ -4,9 +4,11 @@ package com.maurizio.cice;
 
 import java.util.ArrayList;
 
+import android.app.ActionBar;
 import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentManager;
+import android.content.Intent;
 import android.content.res.Configuration;
 import android.content.res.TypedArray;
 import android.os.Bundle;
@@ -16,14 +18,16 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.ListView;
 
 import com.maurizio.cice.adapter.NavDrawerListAdapter;
 import com.maurizio.cice.model.NavDrawerItem;
 import com.maurizio.cice.model.Response;
 
-public class MainActivity extends Activity {
+public class MainActivity extends Activity implements OnItemSelectedListener{
 	private DrawerLayout mDrawerLayout;
 	private ListView mDrawerList;
 	private ActionBarDrawerToggle mDrawerToggle;
@@ -41,11 +45,13 @@ public class MainActivity extends Activity {
 	private ArrayList<NavDrawerItem> navDrawerItems;
 	private NavDrawerListAdapter adapter;
 	private Response response;
+	private int REQUEST_CODE=1;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
+		
 		
 		response = (Response) getIntent().getSerializableExtra(
 				"response");
@@ -148,10 +154,30 @@ public class MainActivity extends Activity {
 		}
 		// Handle action bar actions click
 		switch (item.getItemId()) {
-		case R.id.action_settings:
+		case R.id.addPin:
+			Log.i("", "addPin");
+			Intent i = new Intent(getApplicationContext(), MakePinActivity.class);
+//			startActivity(i);
+			startActivityForResult(i, REQUEST_CODE);
 			return true;
 		default:
 			return super.onOptionsItemSelected(item);
+		}
+	}
+	
+	@Override
+	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+		// TODO Auto-generated method stub
+		super.onActivityResult(requestCode, resultCode, data);
+		
+		if(requestCode==REQUEST_CODE){
+			if(resultCode==RESULT_OK){
+				//Si queremos pasar parametros los recibimos asi	
+//				String response=data.getStringExtra("response");
+//				Log.i("", "onActivityResult"+response);				
+				this.finish();
+				startActivity(this.getIntent());
+			}
 		}
 	}
 
@@ -162,7 +188,7 @@ public class MainActivity extends Activity {
 	public boolean onPrepareOptionsMenu(Menu menu) {
 		// if nav drawer is opened, hide the action items
 		boolean drawerOpen = mDrawerLayout.isDrawerOpen(mDrawerList);
-		menu.findItem(R.id.action_settings).setVisible(!drawerOpen);
+		menu.findItem(R.id.addPin).setVisible(!drawerOpen);
 		return super.onPrepareOptionsMenu(menu);
 	}
 
@@ -246,5 +272,20 @@ public class MainActivity extends Activity {
 	public void setResponse(Response response){
 		this.response=response;
 	}
+
+	@Override
+	public void onItemSelected(AdapterView<?> arg0, View arg1, int arg2,
+			long arg3) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void onNothingSelected(AdapterView<?> arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+	
+	
 
 }
