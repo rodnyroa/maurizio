@@ -285,6 +285,8 @@ public class LoginActivity extends Activity {
 				} else {
 					if (response.getMessageCode().equals("000009")) {
 						msg = getString(R.string.email_not_exists);
+					}else if (response.getMessageCode().equals("000006")) {
+						msg = getString(R.string.email_format_error);
 					}
 				}
 				if (msg != null) {

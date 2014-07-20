@@ -40,12 +40,7 @@ import android.view.View.OnFocusChangeListener;
 public class RegisterActivity extends Activity {
 
 	static final int REQUEST_IMAGE_CAPTURE = 1;
-	/**
-	 * A dummy authentication store containing known user names and passwords.
-	 * TODO: remove after connecting to a real authentication system.
-	 */
-	private static final String[] DUMMY_CREDENTIALS = new String[] {
-			"foo@example.com:hello", "bar@example.com:world" };
+	
 
 	/**
 	 * The default email to populate the email field with.
@@ -314,7 +309,7 @@ public class RegisterActivity extends Activity {
 			HandlerRequestHttp sh = new HandlerRequestHttp();
 
 			String url = getResources().getString(R.urls.url_base)
-					+ getResources().getString(R.urls.url_check_email);
+					+ getResources().getString(R.urls.url_register);
 			Log.d("", "url check email:" + url);
 			String full_name = params[0];
 			String user_name = params[1];

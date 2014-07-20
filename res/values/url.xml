@@ -6,5 +6,6 @@
     <item name="url_login" type="urls">MauPin-User-Login/login.do</item>
     <item name="url_make_pin" type="urls">MauPin-User-PinIt/pinit.do</item>
     <item name="url_following_pin" type="urls">MauPin-Following-Pins/pins.do</item>
+    <item name="url_follow_it" type="urls">MauPin-User-Follow/follow.do</item>
     
 </resources>

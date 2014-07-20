@@ -13,6 +13,7 @@ import com.maurizio.cice.handlerrequest.HandlerRequestHttp;
 import com.maurizio.cice.model.Response;
 
 import android.app.Fragment;
+import android.app.FragmentManager;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -132,6 +133,12 @@ public class HomeFragment extends Fragment {
 						Log.i("", "peticion con pin: "+response.getPins().size());
 						FollowingPinsAdapter adapter = new FollowingPinsAdapter(rootView.getContext(), response.getPins());
 						lvFollowingPins.setAdapter(adapter);
+					}else{
+						Fragment fragment = new SinDatosFragment();
+
+						FragmentManager fragmentManager = getFragmentManager();
+						fragmentManager.beginTransaction()
+								.replace(R.id.frame_container, fragment).commit();
 					}
 					
 					savePreferences("token", response.getToken());

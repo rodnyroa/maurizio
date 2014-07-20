@@ -55,9 +55,9 @@ public final class R {
     }
     public static final class id {
         public static final int LinearLayout1=0x7f0b000b;
-        public static final int action_forgot_password=0x7f0b0020;
-        public static final int action_settings=0x7f0b0022;
-        public static final int addPin=0x7f0b0021;
+        public static final int action_forgot_password=0x7f0b0021;
+        public static final int action_settings=0x7f0b0023;
+        public static final int addPin=0x7f0b0022;
         public static final int add_button=0x7f0b0016;
         public static final int btnHacerPin=0x7f0b000e;
         public static final int counter=0x7f0b0019;
@@ -68,8 +68,8 @@ public final class R {
         public static final int frame_container=0x7f0b0009;
         public static final int fullName=0x7f0b0012;
         public static final int icon=0x7f0b0017;
-        public static final int imageView1=0x7f0b001c;
-        public static final int imgFavorito=0x7f0b001f;
+        public static final int imageView1=0x7f0b001d;
+        public static final int imgFavorito=0x7f0b0020;
         public static final int list_slidermenu=0x7f0b000a;
         public static final int login=0x7f0b0005;
         public static final int login_form=0x7f0b0002;
@@ -83,10 +83,11 @@ public final class R {
         public static final int register_status=0x7f0b000f;
         public static final int register_status_message=0x7f0b0010;
         public static final int sign_in_button=0x7f0b0006;
+        public static final int textView1=0x7f0b001c;
         public static final int title=0x7f0b0018;
-        public static final int tvFecha=0x7f0b001e;
+        public static final int tvFecha=0x7f0b001f;
         public static final int tvNombreUsuario=0x7f0b000c;
-        public static final int tvPin=0x7f0b001d;
+        public static final int tvPin=0x7f0b001e;
         public static final int txtLabel=0x7f0b001a;
         public static final int userName=0x7f0b0013;
     }
@@ -101,8 +102,9 @@ public final class R {
         public static final int fragment_my_pins=0x7f030007;
         public static final int fragment_pages=0x7f030008;
         public static final int fragment_photos=0x7f030009;
-        public static final int fragment_whats_hot=0x7f03000a;
-        public static final int item_following_pins=0x7f03000b;
+        public static final int fragment_sin_datos=0x7f03000a;
+        public static final int fragment_whats_hot=0x7f03000b;
+        public static final int item_following_pins=0x7f03000c;
     }
     public static final class menu {
         public static final int login=0x7f0a0000;
@@ -119,25 +121,35 @@ public final class R {
         public static final int action_sign_in_short=0x7f06000f;
         public static final int app_name=0x7f060000;
         public static final int btn_pin=0x7f06001a;
+        public static final int cancel=0x7f06001f;
         /**  Content Description 
          */
         public static final int desc_list_item_icon=0x7f060005;
         public static final int drawer_close=0x7f060004;
         public static final int drawer_open=0x7f060003;
+        /**  000006 
+         */
+        public static final int email_format_error=0x7f060022;
         /**  Errors 
  000009 
          */
-        public static final int email_not_exists=0x7f06001c;
+        public static final int email_not_exists=0x7f060021;
         /**  000007 
          */
-        public static final int error_email_already_exist=0x7f06001d;
+        public static final int error_email_already_exist=0x7f060023;
         public static final int error_field_required=0x7f060016;
+        /**  000014 
+         */
+        public static final int error_follow_exists=0x7f060024;
         public static final int error_incorrect_password=0x7f060015;
         public static final int error_ingresa_tu_pin=0x7f06001b;
         public static final int error_invalid_email=0x7f060013;
         public static final int error_invalid_password=0x7f060014;
+        public static final int follow_msg=0x7f06001d;
+        public static final int follow_question=0x7f06001c;
         public static final int hello_world=0x7f060002;
         public static final int login_progress_signing_in=0x7f060011;
+        public static final int no_data=0x7f060020;
         public static final int pin=0x7f060019;
         /**  Strings related to login 
          */
@@ -146,8 +158,9 @@ public final class R {
         public static final int prompt_password=0x7f06000b;
         public static final int prompt_user_name=0x7f06000a;
         public static final int register_progress=0x7f060012;
+        public static final int si=0x7f06001e;
         public static final int title_activity_login=0x7f060006;
-        public static final int title_activity_make_pin=0x7f06001e;
+        public static final int title_activity_make_pin=0x7f060025;
         public static final int title_activity_register=0x7f060007;
         public static final int user_login_success=0x7f060018;
         public static final int user_register_success=0x7f060017;
@@ -184,6 +197,7 @@ public final class R {
     public static final class urls {
         public static final int url_base=0x7f090000;
         public static final int url_check_email=0x7f090001;
+        public static final int url_follow_it=0x7f090006;
         public static final int url_following_pin=0x7f090005;
         public static final int url_login=0x7f090003;
         public static final int url_make_pin=0x7f090004;
